@@ -1,37 +1,36 @@
 
-
-
-
-<?php  
-
-
- require_once "MyArticle.php";
-
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
 </head>
+
 <body>
 
 
 
-<?php 
+   <?php
 
-   $articles = Article::readAll();
+     require "MyArticle.php";
+     
 
-   foreach ($articles as $tn){
-      echo "<p>" . $tn['title']."</p>";
-      echo "<h2>" . $tn["content"] . "</h2>";
-   }
+     $articles1 = new Article();
 
+     $art = $articles1->readAll();
 
+     foreach ($art as $tbn){
+      
+         echo "<h1>" . $tbn['id'] . "</h1>";
+         echo "<p>" . $tbn["title"] . "</p>";
+         echo "<p>" . $tbn["content"] . "</p>";
 
-?>
-    
+     }
+
+   ?>
+
 </body>
+
 </html>
