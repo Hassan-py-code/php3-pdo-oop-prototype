@@ -42,7 +42,7 @@ class Article{
     $db = new Database("localhost","blog_db","root","");
     $query ="select * from article Where id=$id";
     $conn = $db->connection();
-    $stmt =$conn->query($query);
+    $stmt = $conn->query($query);
     $article = $stmt->fetch(PDO::FETCH_ASSOC);
     return $article;
     }

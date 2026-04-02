@@ -18,4 +18,3 @@ foreach ($articles as $article) {
     echo "<tr><td>{$article['id']}</td><td>{$article['title']}</td><td>{$article['content']}</td><td>{$article['id_user']}</td></tr>";
 }
 echo "</table>";
-
