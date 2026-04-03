@@ -6,7 +6,7 @@
 
 class Database
 {
-
+    
     private $localhost;
     private $dbname;
     private $root;

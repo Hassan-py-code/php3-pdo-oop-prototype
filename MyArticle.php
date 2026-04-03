@@ -8,9 +8,9 @@ require_once "my_database.php";
 
 class Article
 {
-
+  
     private $conn;
-
+    
     public function __construct() {
         $db = new Database("localhost", "blog_solicode", "root", "");
         $this->conn = $db->connection();

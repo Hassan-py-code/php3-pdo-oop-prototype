@@ -1,36 +1,33 @@
+<?php
+require "MyArticle.php";
+
+$article = new Article();
+$articles = $article->readAll();
+?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<div class="container">
 
+<h1>Articles</h1>
 
-   <?php
+<a href="index.php">+ Add Article</a>
 
-     require "MyArticle.php";
-     
+<?php foreach ($articles as $art): ?>
 
-     $articles1 = new Article();
+<div class="article">
+    <h2><?= htmlspecialchars($art['title']) ?></h2>
+    <p><?= htmlspecialchars($art['content']) ?></p>
+</div>
 
-     $art = $articles1->readAll();
+<?php endforeach; ?>
 
-     foreach ($art as $tbn){
-      
-         echo "<h1>" . $tbn['id'] . "</h1>";
-         echo "<p>" . $tbn["title"] . "</p>";
-         echo "<p>" . $tbn["content"] . "</p>";
-
-     }
-
-   ?>
+</div>
 
 </body>
-
 </html>
