@@ -1,47 +1,42 @@
-
-
-
 <?php
 
-require_once "MyArticle.php";
+require "Article.php";
 
-if (isset($_POST['add'])) {
-
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    
-    $article = new Article();
-    $article->createArticle($title, $content);
-   
-    echo "Article added successfully";
-}
-
-
+$article = new Article();
+$articles = $article->readAll();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
 
-  <form method="POST" action="">
-    
-    <input type="text" name="title" placeholder="Title" required>
-    <br><br>
+    <div class="container">
 
-    <textarea name="content" placeholder="Content" required></textarea>
-    <br><br>
+        <h1>Articles</h1>
 
-    <button type="submit" name="add">Add Article</button>
-</form>
+        <a href="create.php">Add Article</a>
 
-<a href="create.php">result</a>
+        <?php foreach ($articles as $art) {
+            
+            echo   "<div class='article'>";
+            echo  "<h2>" . htmlspecialchars($art['title'])  . "</h2>";
+            echo  "<p>" . htmlspecialchars($art['content'])  . "</p>";
+            echo "</div>";
+        }
+        ?>
 
+
+
+
+
+
+    </div>
 
 </body>
+
 </html>
